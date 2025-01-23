@@ -1,0 +1,25 @@
+services:
+  gigaam_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gigaam_api
+    environment:
+      - HF_TOKEN=${HF_TOKEN}  # Will be taken from .env file or environment
+    ports:
+      - "1488:1488"
+    volumes:
+      - ./app:/app  # Mount local code for development
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:1488/health"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 40s  # Give some time for the model to load
+    networks:
+      - dagster
+
+networks:
+  dagster:
+    external: true
