@@ -19,6 +19,9 @@ RUN git clone https://github.com/salute-developers/GigaAM.git && \
 # install pyannote.audio
 RUN pip install pyannote.audio
 
+# install curl
+RUN apt-get update && apt-get install -y curl
+
 # install model
 COPY ./app/install_model.py .
 RUN python3 /app/install_model.py
