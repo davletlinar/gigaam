@@ -4,3 +4,5 @@ main.py
 giga.py
 app/__pycache__
 app/giga_api_test.py
+.env
+.DS_Store
