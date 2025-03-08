@@ -2,3 +2,4 @@ decoder-test.wav
 /GigaAM
 main.py
 giga.py
+app/__pycache__

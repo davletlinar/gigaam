@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: gigaam_api
     environment:
-      - HF_TOKEN=${HF_TOKEN}  # Will be taken from .env file or environment
+      - HF_TOKEN=${HF_TOKEN}  # Hugging Face API token
     ports:
       - "1488:1488"
     volumes:
